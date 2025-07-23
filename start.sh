@@ -3,9 +3,6 @@
 # Falha se ocorrer qualquer erro
 set -e
 
-# Ativa o virtualenv (Railway já ativa por padrão, mas garantimos)
-source /opt/venv/bin/activate
-
 # Instala as bibliotecas do sistema necessárias para rodar o navegador (Playwright)
 apt-get update && \
 apt-get install -y \
