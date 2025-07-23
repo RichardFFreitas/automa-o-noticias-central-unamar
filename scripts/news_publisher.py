@@ -17,7 +17,6 @@ import requests
 from pathlib import Path
 import re
 from supabase import create_client, Client
-from news_writer import gerar_citacao
 
 # Configurações
 
