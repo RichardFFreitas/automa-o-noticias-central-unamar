@@ -1,0 +1,39 @@
+[phases.setup]
+nixPkgs = [
+  "python311",
+  "gcc",
+  "glib",
+  "gtk3",
+  "pango",
+  "cairo",
+  "alsa-lib",
+  "nss",
+  "nspr",
+  "atk",
+  "at-spi2-core",
+  "libxcomposite",
+  "libxrandr",
+  "libxdamage",
+  "libxfixes",
+  "libxkbcommon",
+  "libX11",
+  "libXext",
+  "libxcb",
+  "libXcomposite",
+  "libXdamage",
+  "libXfixes",
+  "libXrandr",
+  "libgbm"
+]
+
+[phases.install]
+cmds = [
+  "python -m venv /opt/venv",
+  ". /opt/venv/bin/activate",
+  "pip install --upgrade pip",
+  "pip install -r requirements.txt",
+  "playwright install chromium"
+]
+
+[start]
+cmd = ". /opt/venv/bin/activate && python scripts/portal_collector_improved.py"

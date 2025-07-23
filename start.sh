@@ -1,11 +1,10 @@
 #!/bin/bash
-set -e  # para parar no erro
 
-echo "Instalando dependências Python..."
-pip install -r requirements.txt
+# Ativa o virtualenv (importante apenas localmente, no Railway já é ativado)
+source /opt/venv/bin/activate
 
-echo "Instalando navegadores do Playwright..."
-python3 -m playwright install
+# Instala navegador Chromium do Playwright
+python -m playwright install chromium
 
-echo "Executando script principal..."
-python3 scripts/portal_collector_improved.py
+# Executa o script principal
+python scripts/portal_collector_improved.py
