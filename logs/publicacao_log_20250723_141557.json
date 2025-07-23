@@ -1,0 +1,15 @@
+{
+    "titulo_noticia": "Cabo Frio recebe a 23ºedição do Festival Sesc de Inverno",
+    "regiao": "cabo_frio",
+    "categorias": [
+        "cultura"
+    ],
+    "resultado": {
+        "sucesso": true,
+        "id": "noticia_9422",
+        "url": "https://centralunamar.com.br/noticias/cabo_frio/6066",
+        "mensagem": "Notícia publicada com sucesso (simulação)",
+        "timestamp": "2025-07-23T14:15:57.468006"
+    },
+    "timestamp": "2025-07-23T14:15:57.468091"
+}

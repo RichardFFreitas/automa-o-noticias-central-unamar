@@ -1,0 +1,207 @@
+{
+    "timestamp": "2025-07-23T13:22:54.324424",
+    "contagem_arquivos": {
+        "fontes": 2,
+        "scripts": 7,
+        "dados": 4,
+        "dados/processados": 2,
+        "noticias_geradas": 4,
+        "logs": 17
+    },
+    "validacao_scripts": {
+        "twitter_collector.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 6008,
+            "ultima_modificacao": "2025-05-28T12:04:57.392064"
+        },
+        "portal_collector.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 8300,
+            "ultima_modificacao": "2025-05-28T12:41:15.886676"
+        },
+        "portal_collector_improved.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 8887,
+            "ultima_modificacao": "2025-07-23T13:10:43.378996"
+        },
+        "news_processor.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 8583,
+            "ultima_modificacao": "2025-07-23T13:07:01.634435"
+        },
+        "news_writer.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 16230,
+            "ultima_modificacao": "2025-07-23T11:51:27.355844"
+        },
+        "news_publisher.py": {
+            "existe": true,
+            "executavel": false,
+            "tamanho": 15247,
+            "ultima_modificacao": "2025-07-23T12:46:25.382540"
+        }
+    },
+    "validacao_fluxo": {
+        "coleta": {
+            "arquivos": [
+                "todas_noticias_20250528_105335.json",
+                "noticias_g1_regiao_dos_lagos_20250723_131910.json",
+                "todas_noticias_20250723_131945.json",
+                "noticias_g1_regiao_dos_lagos_20250528_105255.json"
+            ],
+            "status": "concluído"
+        },
+        "processamento": {
+            "arquivos": [
+                "todas_noticias_processadas_20250528_105438.json",
+                "noticias_cabo_frio_20250528_105438.json"
+            ],
+            "status": "concluído"
+        },
+        "redacao": {
+            "arquivos": [
+                "noticias_redigidas_cabo_20250528_105602.json",
+                "noticias_redigidas_cabo_20250723_130536.json",
+                "noticia_cabo_1_20250528_105602.txt",
+                "noticia_cabo_1_20250723_130536.txt"
+            ],
+            "status": "concluído"
+        },
+        "publicacao": {
+            "arquivos": [
+                "relatorio_publicacao_20250723_124815.json",
+                "publicacao_log_20250723_124751.json",
+                "relatorio_publicacao_20250723_123607.json",
+                "publicacao_log_20250723_124309.json",
+                "publicacao_log_20250723_122725.json",
+                "relatorio_publicacao_20250723_115137.json",
+                "relatorio_publicacao_20250723_123107.json",
+                "relatorio_publicacao_20250723_124327.json",
+                "publicacao_log_20250723_121452.json",
+                "relatorio_publicacao_20250723_121454.json",
+                "publicacao_log_20250723_123523.json",
+                "publicacao_log_20250723_123105.json",
+                "publicacao_log_20250528_105659.json",
+                "publicacao_log_20250723_114703.json",
+                "publicacao_log_20250723_115134.json",
+                "relatorio_publicacao_20250723_122732.json",
+                "relatorio_publicacao_20250528_105700.json"
+            ],
+            "status": "concluído"
+        }
+    },
+    "validacao_qualidade": {
+        "noticias_analisadas": 2,
+        "criterios": {
+            "titulo_presente": 2,
+            "conteudo_completo": 2,
+            "fonte_citada": 2,
+            "regiao_identificada": 2,
+            "categorias_atribuidas": 2
+        },
+        "amostras": [
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "categorias": [
+                    "policial",
+                    "saude"
+                ],
+                "regiao": "cabo_frio",
+                "tamanho_texto": 807
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "categorias": [
+                    "policial",
+                    "saude"
+                ],
+                "regiao": "cabo_frio",
+                "tamanho_texto": 878
+            }
+        ]
+    },
+    "validacao_publicacao": {
+        "logs_analisados": 9,
+        "publicacoes_sucesso": 9,
+        "publicacoes_falha": 0,
+        "detalhes": [
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:47:51.227620"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:43:09.707744"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:27:25.630812"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:14:52.840896"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:35:23.688690"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T12:31:05.091783"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-05-28T10:56:59.477298"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T11:47:03.195780"
+            },
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-07-23T11:51:34.979913"
+            }
+        ]
+    },
+    "conclusao": {
+        "fluxo_completo": true,
+        "pontos_fortes": [
+            "Fluxo completo de automação implementado com sucesso",
+            "Sistema capaz de gerar notícias automaticamente",
+            "Sistema capaz de publicar notícias automaticamente"
+        ],
+        "pontos_fracos": [
+            "Quantidade limitada de dados coletados",
+            "Poucas notícias geradas para validação robusta"
+        ],
+        "recomendacoes": [
+            "Ampliar fontes de notícias para aumentar cobertura",
+            "Implementar sistema de agendamento para coleta periódica",
+            "Adicionar validação manual antes da publicação final",
+            "Desenvolver painel de controle para monitoramento do fluxo"
+        ]
+    }
+}

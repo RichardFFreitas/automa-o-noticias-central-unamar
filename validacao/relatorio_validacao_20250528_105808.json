@@ -1,0 +1,131 @@
+{
+    "timestamp": "2025-05-28T10:58:08.212362",
+    "contagem_arquivos": {
+        "fontes": 1,
+        "scripts": 7,
+        "dados": 2,
+        "dados/processados": 2,
+        "noticias_geradas": 2,
+        "logs": 2
+    },
+    "validacao_scripts": {
+        "twitter_collector.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 6008,
+            "ultima_modificacao": "2025-05-28T10:49:32.296027"
+        },
+        "portal_collector.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 8293,
+            "ultima_modificacao": "2025-05-28T10:50:31.411164"
+        },
+        "portal_collector_improved.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 8872,
+            "ultima_modificacao": "2025-05-28T10:51:48.691133"
+        },
+        "news_processor.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 8553,
+            "ultima_modificacao": "2025-05-28T10:54:26.618867"
+        },
+        "news_writer.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 16200,
+            "ultima_modificacao": "2025-05-28T10:55:56.226639"
+        },
+        "news_publisher.py": {
+            "existe": true,
+            "executavel": true,
+            "tamanho": 8831,
+            "ultima_modificacao": "2025-05-28T10:56:51.140211"
+        }
+    },
+    "validacao_fluxo": {
+        "coleta": {
+            "arquivos": [
+                "noticias_g1_regiao_dos_lagos_20250528_105255.json",
+                "todas_noticias_20250528_105335.json"
+            ],
+            "status": "concluído"
+        },
+        "processamento": {
+            "arquivos": [
+                "noticias_cabo_frio_20250528_105438.json",
+                "todas_noticias_processadas_20250528_105438.json"
+            ],
+            "status": "concluído"
+        },
+        "redacao": {
+            "arquivos": [
+                "noticias_redigidas_cabo_20250528_105602.json",
+                "noticia_cabo_1_20250528_105602.txt"
+            ],
+            "status": "concluído"
+        },
+        "publicacao": {
+            "arquivos": [
+                "publicacao_log_20250528_105659.json",
+                "relatorio_publicacao_20250528_105700.json"
+            ],
+            "status": "concluído"
+        }
+    },
+    "validacao_qualidade": {
+        "noticias_analisadas": 1,
+        "criterios": {
+            "titulo_presente": 1,
+            "conteudo_completo": 1,
+            "fonte_citada": 1,
+            "regiao_identificada": 1,
+            "categorias_atribuidas": 1
+        },
+        "amostras": [
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "categorias": [
+                    "policial",
+                    "saude"
+                ],
+                "regiao": "cabo_frio",
+                "tamanho_texto": 807
+            }
+        ]
+    },
+    "validacao_publicacao": {
+        "logs_analisados": 1,
+        "publicacoes_sucesso": 1,
+        "publicacoes_falha": 0,
+        "detalhes": [
+            {
+                "titulo": "Homem é preso suspeito de agredir mulher com pedaço de madeira no Centro de Cabo Frio",
+                "regiao": "cabo_frio",
+                "sucesso": true,
+                "timestamp": "2025-05-28T10:56:59.477298"
+            }
+        ]
+    },
+    "conclusao": {
+        "fluxo_completo": true,
+        "pontos_fortes": [
+            "Fluxo completo de automação implementado com sucesso",
+            "Sistema capaz de gerar notícias automaticamente",
+            "Sistema capaz de publicar notícias automaticamente"
+        ],
+        "pontos_fracos": [
+            "Quantidade limitada de dados coletados",
+            "Poucas notícias geradas para validação robusta"
+        ],
+        "recomendacoes": [
+            "Ampliar fontes de notícias para aumentar cobertura",
+            "Implementar sistema de agendamento para coleta periódica",
+            "Adicionar validação manual antes da publicação final",
+            "Desenvolver painel de controle para monitoramento do fluxo"
+        ]
+    }
+}

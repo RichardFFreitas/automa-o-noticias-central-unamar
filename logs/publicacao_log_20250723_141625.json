@@ -1,0 +1,15 @@
+{
+    "titulo_noticia": "Região dos Lagos e Maricá oferecem vagas de emprego nesta semana",
+    "regiao": "cabo_frio",
+    "categorias": [
+        "geral"
+    ],
+    "resultado": {
+        "sucesso": true,
+        "id": "noticia_8279",
+        "url": "https://centralunamar.com.br/noticias/cabo_frio/1351",
+        "mensagem": "Notícia publicada com sucesso (simulação)",
+        "timestamp": "2025-07-23T14:16:25.171330"
+    },
+    "timestamp": "2025-07-23T14:16:25.171416"
+}
