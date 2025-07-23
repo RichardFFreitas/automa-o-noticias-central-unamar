@@ -14,9 +14,12 @@ import random
 from pathlib import Path
 
 # Configurações
-INPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/dados/processados")
-OUTPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/noticias_geradas")
-OUTPUT_DIR.mkdir(exist_ok=True)
+
+BASE_DIR = Path(__file__).resolve().parent
+
+INPUT_DIR = BASE_DIR / "dados" / "processados"
+OUTPUT_DIR = BASE_DIR / "noticias_geradas"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Templates para diferentes categorias de notícias
 TEMPLATES = {

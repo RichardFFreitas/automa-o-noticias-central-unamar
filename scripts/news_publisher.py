@@ -20,9 +20,12 @@ from supabase import create_client, Client
 from news_writer import gerar_citacao
 
 # Configurações
-INPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/noticias_geradas")
-LOGS_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/logs")
-LOGS_DIR.mkdir(exist_ok=True)
+
+BASE_DIR = Path(__file__).resolve().parent
+
+INPUT_DIR = BASE_DIR / "noticias_geradas"
+LOGS_DIR = BASE_DIR / "logs"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 SUPABASE_URL = "https://fqeawknurzhdoznzuctb.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxZWF3a251cnpoZG96bnp1Y3RiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczOTU1MjE5OCwiZXhwIjoyMDU1MTI4MTk4fQ.fC2AaHpngWvgkUZBNdk_MI9k5CPUCvsab1oACew9ZAo"

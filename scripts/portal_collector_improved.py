@@ -16,8 +16,10 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 # Configurações
-OUTPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/dados")
-OUTPUT_DIR.mkdir(exist_ok=True)
+BASE_DIR = Path(__file__).resolve().parent
+
+OUTPUT_DIR = BASE_DIR / "dados"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Lista de portais para scraping com seletores ajustados
 PORTAIS = [

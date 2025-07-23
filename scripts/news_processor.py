@@ -14,9 +14,11 @@ import re
 from pathlib import Path
 
 # Configurações
-INPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/dados")
-OUTPUT_DIR = Path("/home/lawli/projects/automacao_noticias_central_unamar/dados/processados")
-OUTPUT_DIR.mkdir(exist_ok=True)
+BASE_DIR = Path(__file__).resolve().parent
+
+INPUT_DIR = BASE_DIR / "dados"
+OUTPUT_DIR = INPUT_DIR / "processados"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Regiões de interesse
 REGIOES = {
