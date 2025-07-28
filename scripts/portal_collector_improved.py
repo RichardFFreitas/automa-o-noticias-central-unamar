@@ -25,7 +25,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 PORTAIS = [
     {
         "nome": "RC24H",
-        "url": "https://rc24h.com.br/",
+        "url": "https://rc24h.com.br/brasil/estado/regiao-dos-lagos/cabo-frio/",
         "seletor_noticias": "article.elementor-post",
         "seletor_titulo": "h3.elementor-post__title a",
         "seletor_link": "h3.elementor-post__title a",
@@ -35,7 +35,7 @@ PORTAIS = [
     },
     {
         "nome": "Folha dos Lagos",
-        "url": "https://www.folhadoslagos.com/",
+        "url": "https://www.folhadoslagos.com/ultimas-noticias/",
         "seletor_noticias": "div.noticia, article.post",
         "seletor_titulo": "h2 a, h3 a",
         "seletor_link": "h2 a, h3 a",

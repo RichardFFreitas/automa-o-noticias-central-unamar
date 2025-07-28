@@ -220,6 +220,7 @@ def gerar_excerpt_gemini(noticia):
         "IMPORTANTE:\n"
         "- Retorne apenas o conteúdo do excerpt da notícia, sem explicações, comentários, instruções, nem tags <html>, <head>, <body>, <style>, nem nada além do conteúdo da notícia.\n"
         "- Não escreva nada além do excerpt da notícia.\n"
+        "- Deve ter no maximo 150 caracteres.\n"
         "- Se for duas ou mais noticias lempre de escrever um excerpt condizente para cada noticia.\n"
         "- Não escreva frases como 'Aqui está...', 'Segue abaixo...', etc.\n"
         "- Caso tenha alguma citação adicione aspas e reticências para demonstrar continuação \n"
