@@ -31,6 +31,7 @@ PORTAIS = [
         "seletor_link": "h3.elementor-post__title a",
         "seletor_data": "span.elementor-post-date",
         "seletor_resumo": "div.elementor-post__excerpt p",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Cabo Frio"
     },
     {
@@ -41,6 +42,7 @@ PORTAIS = [
         "seletor_link": "h2 a, h3 a",
         "seletor_data": "span.data, time",
         "seletor_resumo": "p.resumo, div.excerpt p",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Região dos Lagos"
     },
     {
@@ -51,6 +53,7 @@ PORTAIS = [
         "seletor_link": "a.feed-post-link",
         "seletor_data": "span.feed-post-datetime",
         "seletor_resumo": "div.feed-post-body-resumo",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Região dos Lagos"
     },
     {
@@ -61,6 +64,7 @@ PORTAIS = [
         "seletor_link": "h2 a",
         "seletor_data": "time",
         "seletor_resumo": "p",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Cabo Frio"
     },
     {
@@ -71,6 +75,7 @@ PORTAIS = [
         "seletor_link": "h2 a",
         "seletor_data": "time",
         "seletor_resumo": "div.excerpt p",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Cabo Frio"
     },
     {
@@ -81,6 +86,7 @@ PORTAIS = [
         "seletor_link": "h2 a",
         "seletor_data": "time",
         "seletor_resumo": "div.excerpt p",
+        "seletor_imagem": "img",  # Adicionado seletor para imagens
         "regiao": "Tamoios"
     }
 ]
@@ -147,6 +153,16 @@ def extrair_noticias_do_portal(page, portal):
             if resumo_elem:
                 noticia['resumo'] = resumo_elem.inner_text().strip()
             
+            # Extrai a imagem
+            imagem_elem = elemento.query_selector(portal['seletor_imagem'])
+            if imagem_elem:
+                imagem = imagem_elem.get_attribute('src')
+                # Verifica se a imagem é relativa e adiciona o domínio se necessário
+                if imagem and imagem.startswith('/'):
+                    base_url = '/'.join(portal['url'].split('/')[:3])
+                    imagem = base_url + imagem
+                noticia['imagem'] = imagem
+            
             # Verifica se a notícia tem pelo menos título e link
             if 'titulo' in noticia and 'link' in noticia and noticia['titulo'] and noticia['link']:
                 # Filtra por palavras-chave relevantes
@@ -167,16 +183,40 @@ def extrair_noticias_do_portal(page, portal):
     
     return noticias
 
+def verificar_duplicatas(noticias):
+    """
+    Remove notícias duplicadas com base no título e link.
+
+    Args:
+        noticias (list): Lista de notícias extraídas.
+
+    Returns:
+        list: Lista de notícias sem duplicatas.
+    """
+    noticias_unicas = []
+    vistos = set()
+
+    for noticia in noticias:
+        identificador = (noticia['titulo'], noticia['link'])
+        if identificador not in vistos:
+            vistos.add(identificador)
+            noticias_unicas.append(noticia)
+
+    return noticias_unicas
+
 def salvar_noticias(noticias, nome_portal):
     """
     Salva as notícias extraídas em um arquivo JSON.
-    
+
     Args:
-        noticias (list): Lista de notícias extraídas
+        noticias (list): Lista de notícias extraídas.
         nome_portal (str): Nome do portal
     """
+    # Remove duplicatas antes de salvar
+    noticias = verificar_duplicatas(noticias)
+
     if not noticias:
-        print(f"Nenhuma notícia relevante encontrada para {nome_portal}")
+        print(f"Nenhuma notícia para salvar de {nome_portal}.")
         return
     
     # Formata o nome do portal para o nome do arquivo

@@ -95,35 +95,56 @@ def preparar_payload_noticia(noticia):
     }
     return payload
 
+def upload_imagem_supabase(imagem_url):
+    """
+    Faz upload de uma imagem para o Supabase.
+
+    Args:
+        imagem_url (str): URL da imagem a ser baixada e enviada.
+
+    Returns:
+        str: URL pública da imagem no Supabase.
+    """
+    try:
+        import requests
+        response = requests.get(imagem_url, stream=True)
+        response.raise_for_status()
+
+        # Nome do arquivo no Supabase
+        nome_arquivo = imagem_url.split("/")[-1]
+
+        # Faz upload para o bucket "imagens"
+        supabase.storage.from_("news").upload(f"{nome_arquivo}", response.raw)
+
+        # Retorna a URL pública
+        url_publica = supabase.storage.from_("news").get_public_url(f"{nome_arquivo}")
+        return url_publica
+
+    except Exception as e:
+        print(f"Erro ao fazer upload da imagem: {e}")
+        return None
+
 def publicar_noticia_api(payload):
     """
     Publica a notícia na plataforma através da API.
-    
+
     Args:
         payload (dict): Dados formatados da notícia
-        
+
     Returns:
         dict: Resposta da API ou simulação
     """
     # Configuração para modo de simulação (sem envio real)
     MODO_SIMULACAO = True  # Alterar para False quando a API estiver disponível
-    
+
     if MODO_SIMULACAO:
-        print(f"[SIMULAÇÃO] Enviando notícia: {payload['titulo']}")
-        time.sleep(random.uniform(0.5, 1.5))  # Simula tempo de resposta da API
-        
-        # Simula resposta da API
-        resposta = {
-            "sucesso": True,
-            "id": f"noticia_{random.randint(1000, 9999)}",
-            "url": f"https://centralunamar.com.br/noticias/{payload['regiao']}/{random.randint(1000, 9999)}",
-            "mensagem": "Notícia publicada com sucesso (simulação)",
-            "timestamp": datetime.datetime.now().isoformat()
-        }
-        
-        print(f"[SIMULAÇÃO] Notícia publicada com sucesso: ID {resposta['id']}")
-        return resposta
-    
+        print("Simulação de publicação:", payload)
+        return {"status": "simulado", "payload": payload}
+
+    # Faz upload da imagem, se existir
+    if payload.get("imagem"):
+        payload["imagem"] = upload_imagem_supabase(payload["imagem"])
+
     # Código para envio real à API (quando disponível)
     try:
         # Aqui ficaria o código real de publicação na API, se necessário
@@ -297,6 +318,11 @@ def montar_json_supabase(noticia, resultado_publicacao):
     categoria_oficial = CATEGORIAS_OFICIAIS.get(categoria_interna, 'Eventos e cultura')
     excerpt = gerar_excerpt_gemini(noticia)
     content_html = gerar_content_gemini(noticia)
+
+    # Adiciona a URL da imagem ao campo "images"
+    imagem_url = noticia.get('imagem')
+    imagens = [upload_imagem_supabase(imagem_url)] if imagem_url else []
+
     return {
         "user_id": SUPABASE_USER_ID,
         "slug": slug,
@@ -304,7 +330,7 @@ def montar_json_supabase(noticia, resultado_publicacao):
         "excerpt": excerpt,
         "content": content_html,
         "category": categoria_oficial,
-        "images": [],
+        "images": imagens,  # Inclui a URL da imagem
         "date": data_iso,
         "created_at": data_full,
         "updated_at": data_full
